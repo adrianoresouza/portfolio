@@ -1,13 +1,14 @@
 .container{
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     margin-top: 20px;
     padding: 20px;
     height: 100vh;
     background-color: rgb(255, 255, 255);
 }
 
-.areaApresentacao{
+.secaoApresentacao{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -15,20 +16,23 @@
     padding: 20px;
 }
 
-.bemVindo{
-    text-align: start;
-    font-size: 1.2em;
-    margin: 10px 100px;
-    width: 40%;
+.areaApresentacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    img{
+        margin: 0 10px;
+        border-radius: 50%;
+    }
     p{
-        text-align: start   ;
+        text-align: center;
     }
 }
 
 .apresentacao{
     text-align: justify;
     font-size: 1.3em;
-    width: 60%;
 }
 
 .areaProjetos{
@@ -79,4 +83,19 @@
     -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.03);
     -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.03);
     box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.03);
+}
+
+@media  screen and (max-width: 1000px) {
+    .areaProjetos{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .areaApresentacao{
+        flex-direction: column;
+    }
+    .bemVindo{
+        margin: 40px auto;
+    }
 }

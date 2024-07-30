@@ -1,16 +1,20 @@
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
-import HomePagestyles from './HomePage.module.css'
+import HomePagestyles from './HomePage.module.css';
+import me from '../../assets/me.JPG';
 
 export default function HomePage() {
 	return (
 		<>
 			<Header />
 			<div className={HomePagestyles.container}>
-				<section className={HomePagestyles.areaApresentacao}>
-					<p className={HomePagestyles.bemVindo}>
-						Olá! Seja bem-vindo!
-					</p>
+				<section className={HomePagestyles.secaoApresentacao}>
+					<div className={HomePagestyles.areaApresentacao}>
+						<img src={me} height={100}/>
+						<p>
+							Olá! Seja bem-vindo!
+						</p>
+					</div>
 					<p className={HomePagestyles.apresentacao}>
 						Sou Adriano Resende de Souza
 						desenvolvedor .NET há 12 anos.
@@ -23,7 +27,7 @@ export default function HomePage() {
 					</div>
 					<div className={HomePagestyles.areaProjetos}>
 						<div class={HomePagestyles.projeto}>
-							<p><strong>Projeto de Controle de Finanças</strong></p>
+							<p><strong>Controle de Finanças</strong></p>
 							<hr/>
 							<p>
 								Projeto criado pensando em desenvolver habilidades no desenvolvimento
@@ -44,11 +48,21 @@ export default function HomePage() {
 							<a href='https://github.com/adrianoresouza/mymoney' target='_blank'>Veja o projeto no GitHub</a>
 						</div>
 						<div class={HomePagestyles.projeto}>
-							<p>Projeto XPTO</p>
+							<p><strong>Portfólio</strong></p>
+							<hr/>
+							<p>
+								Projeto deste portfólio em SPA criado utilizando ReactJS
+							</p>
+							<a href='https://github.com/adrianoresouza/portfolio' target='_blank'>Veja o projeto no GitHub</a>
 						</div>
-						<div class={HomePagestyles.projeto}>
-							<p>Projeto XPTO</p>
-						</div>
+						{/* <div class={HomePagestyles.projeto}>
+							<p>
+								<strong>
+							Projeto XPTO
+
+								</strong>
+							</p>
+						</div> */}
 					</div>
 				</section>
 				<Footer/>
