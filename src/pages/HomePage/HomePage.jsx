@@ -10,14 +10,13 @@ export default function HomePage() {
 			<div className={HomePagestyles.container}>
 				<section className={HomePagestyles.secaoApresentacao}>
 					<div className={HomePagestyles.areaApresentacao}>
-						<img src={me} height={100}/>
+						<img src={me} height={80}/>
 						<p>
-							Olá! Seja bem-vindo!
+							Olá! Sou Adriano Resende!
 						</p>
 					</div>
 					<p className={HomePagestyles.apresentacao}>
-						Sou Adriano Resende de Souza
-						desenvolvedor .NET há 12 anos.
+						Desenvolvedor .NET há 12 anos.
 						Além da plataforma .NET desenvolvo utilizando reactJS e sua versão para dispositivos móveis, o React Native.
 					</p>
 				</section>
