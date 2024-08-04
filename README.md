@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+# Portfólio 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto em construção de um portfólio de desenvolvedor construído 
+utilizando o ReactJS. Estilizado utilizando css modules.
+Já está funcionando corretamente a integração com o firebase para registro dos posts do blog.
 
-## Available Scripts
+### Próximos passos
+- Melhoria do layout.
+- Desenvolvimento da página e rotina de autenticação.
+- Desenvolvimento da pagina de elaboração dos posts.
+- Desenvolvimento da área restrita, o de será possivel realizar a administração de um blog.
+
+
+## Como utilizar o projeto
 
 In the project directory, you can run:
 
