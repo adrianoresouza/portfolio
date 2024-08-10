@@ -7,13 +7,15 @@ import {
 	uploadBytes,
   } from "firebase/storage";
 import { doc, setDoc, collection } from 'firebase/firestore';
+import Header from '../../components/Header/Header';
+import styles from './Editor.module.css';
 
 export default function PostEditor() {
 	const editorRef = useRef(null);
+	const [titulo, setTitulo] = useState('');
 	const [imageUpload, setImageUpload] = useState(null);
 
 	async function handleSavePost(){
-		console.log('>>>', editorRef);
 		if (editorRef.current) {
 			const content = editorRef.current.getContent();
 			console.log('body', content);
@@ -21,6 +23,7 @@ export default function PostEditor() {
 			//const postRef = doc(db, 'posts', '1');
 			const postRef = doc(collection(db, 'posts'));
 			const post = {
+				title: titulo,
 				date: currentTime,
 				body: content
 			}
@@ -46,7 +49,6 @@ export default function PostEditor() {
 				console.log('enviado com sucesso')
 				getDownloadURL(snapshot.ref).then(async (downloadURL) => { 
 					resolve(downloadURL);
-					
 				});
 			})
 			.catch((error) => {
@@ -57,11 +59,18 @@ export default function PostEditor() {
 
 	return (
 		<>
+			<Header/>
+		<div className={styles.container}>
+			<h1>Monte sua postagem</h1>
+			<div className={styles.areaTitulo}>
+				<label>Titulo</label>
+				<input type='text' onChange={(e)=>setTitulo(e.target.value)}/>
+			</div>			
 			<Editor
 				apiKey='js6esakmphf64shxvrhv29wqf2feh6cwlddjhbmo0gak31cr'
 				tinymceScriptSrc={process.env.PUBLIC_URL + '/tinymce/tinymce.min.js'}
 				onInit={(evt, editor) => editorRef.current = editor}
-				initialValue='<p>This is the initial content of the editor.</p>'
+				initialValue=''
 				init={{
 				height: 500,
 				menubar: false,
@@ -78,7 +87,8 @@ export default function PostEditor() {
 				images_upload_handler: handleUpload
 				}}
       		/>
-      		<button onClick={handleSavePost}>Log editor content</button>
+      		<button className={styles.saveButton} onClick={handleSavePost}>Salvar Post</button>
+		</div>
 		</>
 	);
 }

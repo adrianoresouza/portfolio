@@ -3,7 +3,6 @@
     flex-direction: column;
     flex-shrink: 0;
     margin-top: 20px;
-    padding: 20px;
     height: 100vh;
     background-color: rgb(255, 255, 255);
 }
@@ -14,60 +13,74 @@
     align-items: center;
     justify-content: space-evenly;
     padding: 20px;
-}
+}   
 
 .areaApresentacao{
+    border-radius: 5px;
+    color: white;
+    position: relative;
+    background-color: #393e40;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    margin-right: 30px;
+    align-items: center;
+    height: 400px;
+    width: 70%;
     img{
-        margin: 15px 10px;
-        border-radius: 50%;
+        left: -50px;
+        position: absolute;
     }
     p{
-        font-size: 2.5em;
+        margin-left: 120px;
+        font-weight: 300;
+        font-size: 1.5em;
     }
 }
 
 .apresentacao{
-    text-align: justify;
+    text-align: left;
     font-size: 1.3em;
-    width: 300px;
+    width: 80%;
 }
 
 .areaProjetos{
-    padding: 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    p{
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
 }
 
 .projetosTitulo{
     text-align: center;
     padding: 15px;
     h1{
-        font-size: 1.2em;
+        font-size: 1.5em;
+        color: aliceblue;
+        font-weight: 500;
     }
 }
 
 .projetos{
-    border-radius: 10px;
-    background-color: #f2fbff;
-    margin: 15px;
+    background-color: #393e40;
 }
 
 
 .projeto{
+    flex: 1 1 350px;
     border-radius: 5px;
     margin: 10px;
     background-color: white;
     padding: 20px;
     margin-top: 15px;
     text-align: justify;
-    max-width: 400px;
+    
     p{
         padding: 5px;
     }
@@ -87,15 +100,25 @@
     box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.03);
 }
 
-@media  screen and (max-width: 1000px) {
+@media  screen and (max-width: 1100px) {
+    
     .areaProjetos{
         justify-content: center;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .areaApresentacao{
-        flex-direction: column;
+    .areaApresentacao{        
+        border-radius: 10px;
+        width: 100%;   
+        img{
+            height: 10em;
+            left: -10px;
+        }
+        p{
+            text-align: justify;
+            margin-right: 20px;
+        }
     }
     .bemVindo{
         margin: 40px auto;

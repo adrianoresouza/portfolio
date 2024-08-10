@@ -10,15 +10,15 @@ export default function HomePage() {
 			<div className={HomePagestyles.container}>
 				<section className={HomePagestyles.secaoApresentacao}>
 					<div className={HomePagestyles.areaApresentacao}>
-						<img src={me} height={80}/>
-						<p>
-							Olá! Sou Adriano Resende!
-						</p>
+						<img src={me} height={200}/>
+						
+							<p className={HomePagestyles.apresentacao}>
+								Olá! Sou Adriano Resende!
+								Desenvolvedor .NET há 12 anos.
+								Além da plataforma .NET desenvolvo utilizando reactJS e sua versão para dispositivos móveis, o React Native.
+							</p>
+						
 					</div>
-					<p className={HomePagestyles.apresentacao}>
-						Desenvolvedor .NET há 12 anos.
-						Além da plataforma .NET desenvolvo utilizando reactJS e sua versão para dispositivos móveis, o React Native.
-					</p>
 				</section>
 				<section class={HomePagestyles.projetos}>
 					<div class={HomePagestyles.projetosTitulo}>
@@ -54,14 +54,15 @@ export default function HomePage() {
 							</p>
 							<a href='https://github.com/adrianoresouza/portfolio' target='_blank'>Veja o projeto no GitHub</a>
 						</div>
-						{/* <div class={HomePagestyles.projeto}>
+						<div class={HomePagestyles.projeto}>
+							<p><strong>Projeto de site de vendas de Lanches</strong></p>
+							<hr/>
 							<p>
-								<strong>
-							Projeto XPTO
-
-								</strong>
+								Projeto de um site de vendas de lanches desenvolvido durante curso de asp.net core ministrado pelo Macoratti.
+								Atualmente o projeto se encontra em fase de estilização, visto que o curso teve como objetivo ensinar o funcionamento da plataforma.
 							</p>
-						</div> */}
+							<a href='https://github.com/adrianoresouza/portfolio' target='_blank'>Veja o projeto no GitHub</a>
+						</div>
 					</div>
 				</section>
 				<Footer/>
