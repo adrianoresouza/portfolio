@@ -1,9 +1,9 @@
 header{
     padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: #FFF;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #edecec;
+    border-bottom: 0.1px solid #3F3C37;
     h3{
         margin-right: 10px;
         font-style: italic;
@@ -17,5 +17,7 @@ header{
     a{
         margin: 10px 20px;
         text-decoration: none;
+        color: #D64933;
+        font-weight: 600;
     }
 }

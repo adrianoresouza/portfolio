@@ -3,6 +3,17 @@ import Header from '../../components/Header/Header';
 import HomePagestyles from './HomePage.module.css';
 import me from '../../assets/me.JPG';
 
+import { } from 'devicon';
+import { 
+	CsharpOriginal as CSharpIcon, 
+	ReactOriginalWordmark as ReactIcon, 
+	MicrosoftsqlserverOriginalWordmark as SQLIcon,
+	DotnetcoreOriginal as DotNetIcon,
+	FirebaseOriginal as FirebaseIcon,
+	BootstrapOriginal as BootstrapIcon,
+	JavascriptOriginal as JavascriptIcon
+} from 'devicons-react'
+
 export default function HomePage() {
 	return (
 		<>
@@ -18,6 +29,18 @@ export default function HomePage() {
 								Além da plataforma .NET desenvolvo utilizando reactJS e sua versão para dispositivos móveis, o React Native.
 							</p>
 						
+					</div>
+				</section>
+				<section className={HomePagestyles.areaTecnologias}>
+					<div>
+						<p>Tecnologias: </p>
+						<DotNetIcon size={50}/>
+						<CSharpIcon size={50}/>
+						<SQLIcon size={50}/>
+						<ReactIcon size={50}/> 
+						<FirebaseIcon size={50}/>
+						<BootstrapIcon size={50}/>
+						<JavascriptIcon size={50}/>
 					</div>
 				</section>
 				<section class={HomePagestyles.projetos}>
