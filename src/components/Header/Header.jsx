@@ -32,12 +32,15 @@ export default function Header() {
 			<Link to="/">AR-Dev</Link>
 			<Link to="/blog"> Blog</Link>
 			<Link to="/contato">Contato</Link>
+			<Link to="/editor">Área do Editor</Link>
+			<div className={styles.logoutArea}>
 			{ !isLogged ? (<></>) : 
-				<>
-					<p>Bem vindo: {nome}</p>
-					<button onClick={handleLogout}>Logout</button>
-				</>
-			}
+					<>
+						<p>Bem vindo: {nome}</p>
+						<button onClick={handleLogout}>Logout</button>
+					</>
+				}
+			</div>
 			
 		</header>
 	);

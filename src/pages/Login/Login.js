@@ -11,13 +11,14 @@ export default function Login() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [uid, setUid] = useState('')
+	const [errorMessage, setErrorMessage] = useState('')
 
 	const navigate = useNavigate();
 
 	const updateUid = useUserStore((state) => state.setUid)
 	const updateNome = useUserStore((state)=> state.setNome)
 
-	const  getUser = async (id) => {
+	const  setUser = async (id) => {
 		const docRef = doc(db, "users", id);
 		await getDoc(docRef)
 		.then((snapshot)=>{
@@ -38,16 +39,21 @@ export default function Login() {
 		await signInWithEmailAndPassword(auth, email, password)
 		.then( async ( value )=>{
 			uidReceived = value.user.uid
+			setUid(uidReceived);	
+			updateUid(uidReceived)
+			await setUser(uidReceived)
+			if(uidReceived!==''){
+				navigate("/editor")
+			}
 		})
 		.catch((error) =>{
-			console.log('Erro ao autenticar: ', error)
+			if(error.code === 'auth/invalid-credential')
+			{
+				setErrorMessage('E-mail ou senha inválidos');
+			}
+			console.log('Erro ao autenticar: ', error.code)
 		})
-		setUid(uidReceived);	
-		updateUid(uidReceived)
-		let user = getUser(uidReceived)
-		if(uidReceived!==''){
-			navigate("/editor")
-		}
+		
 	  };
 
 	return (
@@ -60,8 +66,8 @@ export default function Login() {
 							<input type="email" placeholder='Insira seu e-mail' value={email} onChange={(e)=> setEmail(e.target.value)}/>
 							<input type="password" placeholder='Insira sua senha' value={password} onChange={(e)=> setPassword(e.target.value)}/>
 							<button onClick={HandleSubmit}>Entrar</button>
+							<span>{errorMessage}</span>
 						</div>
-						{uid}
 						{/* <form  onSubmit={HandleSubmit}>
 							<input type="email" placeholder='Insira seu e-mail' value={email} onChange={(e)=> setEmail(e.target.value)}/>
 							<input type="password" placeholder='Insira sua senha' value={password} onChange={(e)=> setPassword(e.target.value)}/>
