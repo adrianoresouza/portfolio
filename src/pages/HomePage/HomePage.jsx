@@ -17,7 +17,6 @@ import {
 export default function HomePage() {
 	return (
 		<>
-			<Header />
 			<div className={HomePagestyles.container}>
 				<section className={HomePagestyles.secaoApresentacao}>
 					<div className={HomePagestyles.areaApresentacao}>

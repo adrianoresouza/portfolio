@@ -12,18 +12,27 @@ export default function Header() {
 	const updateNome = useUserStore((state) => state.setNome);
 
 	useEffect(() => {
-		
-	  if(nome !== ''){
-		setIsLogged(true);
-	  }
-	}, [])
+		getUser()
+	}, [nome])
 	
+	const getUser = () =>{
+		if(nome !== ''){
+			const user = JSON.parse(localStorage.getItem('user'));
+			console.log('user', user)
+			if(user){
+				updateUid(user.id);
+				updateNome(user.nome);
+				setIsLogged(true);
+			}
+		}
+	}
 
 	const handleLogout = async () => {
 		localStorage.clear();
 		updateUid('');
 		updateNome('');
-		navigate("/blog")
+		navigate("/blog");
+		setIsLogged(false);
 	}
 
 	return (

@@ -4,7 +4,6 @@ import styles from './Contato.module.css';
 export default function Contato() {
 	return (
 		<>
-			<Header />
 			<div className={styles.container}>
 				<p>Entre em contato através dos canais abaixo:</p>
 				<a href="mailto:adrianoresouza@gmail.com">E-mail: adrianoresouza@gmail.com</a>

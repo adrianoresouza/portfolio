@@ -46,7 +46,6 @@ export default function Blog() {
 
 	return (
 		<>
-			<Header/>
 			<div className={styles.container}>
 				<h1 className={styles.pageTitle}>BLOG</h1>
 				{posts.map((item)=>{

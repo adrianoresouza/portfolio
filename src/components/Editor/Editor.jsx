@@ -59,7 +59,7 @@ export default function PostEditor() {
 
 	return (
 		<>
-			<Header/>
+			
 		<div className={styles.container}>
 			<h1>Monte sua postagem</h1>
 			<div className={styles.areaTitulo}>

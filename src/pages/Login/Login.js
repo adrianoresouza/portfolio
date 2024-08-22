@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import Header from '../../components/Header/Header.jsx'
 import styles from './Login.module.css'
-import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../../services/firebaseConnection.js'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, getDoc} from 'firebase/firestore'
 import useUserStore from '../../stores/userStore.js'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
 	const [email, setEmail] = useState('')
@@ -24,10 +23,11 @@ export default function Login() {
 		.then((snapshot)=>{
 			updateUid(id);
 			updateNome(snapshot.data().nome);    
-			localStorage.setItem("user", {
+			const user = {
 				id: id,
 				nome: snapshot.data().nome
-			});  
+			}
+			localStorage.setItem("user", JSON.stringify(user));  
 		})
 		.catch((error)=>{
 			console.log('Error: ', error)
@@ -39,8 +39,6 @@ export default function Login() {
 		await signInWithEmailAndPassword(auth, email, password)
 		.then( async ( value )=>{
 			uidReceived = value.user.uid
-			setUid(uidReceived);	
-			updateUid(uidReceived)
 			await setUser(uidReceived)
 			if(uidReceived!==''){
 				navigate("/editor")
@@ -58,7 +56,6 @@ export default function Login() {
 
 	return (
 		<>
-			<Header/>
 			<div className={styles.container}>
 					<h1>Área de administração</h1>
 					<div className={styles.loginArea}>
